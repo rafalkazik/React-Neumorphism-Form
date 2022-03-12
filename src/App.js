@@ -1,10 +1,16 @@
-import Questionnaire from './components/Questionnaire';
+import Questionnaire from './components/Questionnaire/Questionnaire';
+import ResetStyle from './components/Global/Reset';
+import GlobalStyle from './components/Global/Global';
 
 function App() {
   return (
-    <div className='App'>
-      <Questionnaire />
-    </div>
+    <>
+      <ResetStyle />
+      <GlobalStyle />
+      <div className='App'>
+        <Questionnaire />
+      </div>
+    </>
   );
 }
 
