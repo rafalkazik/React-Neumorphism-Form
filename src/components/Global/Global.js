@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Montserrat', sans-serif;;
         font-size: 1.6rem;
         background-color: #edf5fb;
+        width: 100%;
 }
 `;
 export default GlobalStyle;
