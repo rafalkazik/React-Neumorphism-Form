@@ -7,9 +7,7 @@ function App() {
     <>
       <ResetStyle />
       <GlobalStyle />
-      <div className='App'>
-        <Questionnaire />
-      </div>
+      <Questionnaire />
     </>
   );
 }
