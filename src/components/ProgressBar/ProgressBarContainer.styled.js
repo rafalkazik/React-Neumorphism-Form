@@ -21,7 +21,7 @@ const StyledProgressBarContainer = styled.div`
     background-color: #dde1e7;
     border: 0;
     border-radius: 25px;
-    box-shadow: inset 2px 2px 5px #cccfdb, inset -5px -5px 10px #ffffff73;
+    box-shadow: inset 3px 3px 5px #cccfdb, inset -7px -7px 10px #ffffff73;
     height: 50px;
     max-width: 500px;
     padding: 1rem;

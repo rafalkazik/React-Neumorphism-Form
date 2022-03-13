@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const StyledInputText = styled.input`
   height: 100%;
   width: 100%;
-  max-width: 300px;
+  max-width: 500px;
   padding: 1.5rem 0 1.5rem 1rem;
   font-size: 1.4rem;
   outline: none;
@@ -12,7 +12,7 @@ const StyledInputText = styled.input`
   background-color: #dde1e7;
   border-radius: 5px;
   margin: 1rem;
-  box-shadow: inset 2px 2px 5px #cccfdb, inset -5px -5px 10px #ffffff73;
+  box-shadow: inset 3px 3px 5px #cccfdb, inset -7px -7px 10px #ffffff73;
 `;
 
 export { StyledInputText };
