@@ -9,6 +9,7 @@ import InputCheckbox from '../InputCheckbox/InputCheckbox';
 import InputCheckboxError from '../InputCheckbox/InputCheckboxError';
 import InputCheckboxContainer from '../InputCheckboxContainer/InputCheckboxContainer';
 import InputCheckboxSlider from '../InputCheckboxContainer/InputCheckboxSlider';
+import PermissionText from '../PermissionText/PermissionText';
 import Button from '../Button/Button';
 
 function Questionnaire() {
@@ -170,10 +171,13 @@ function Questionnaire() {
                 checkboxHandler={checkboxHandler}
               />
               <InputCheckboxSlider />
-              <p>
-                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                Lorem ipsum
-              </p>
+              <PermissionText>
+                I hereby give consent for my personal data included in my
+                application to be processed for the purposes of the recruitment
+                process under the personal data protection act as of 29 august
+                1997, consolidated text: journal of laws 2016, item 922 as
+                amended.
+              </PermissionText>
             </InputCheckboxContainer>
             <InputCheckboxError dataPermission={dataPermission}>
               Select permission
