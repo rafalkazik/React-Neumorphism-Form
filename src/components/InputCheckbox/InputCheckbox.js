@@ -7,7 +7,7 @@ const InputCheckbox = (props) => {
   }, []);
 
   return (
-    <StyledInputCheckbox type={props.type}>
+    <StyledInputCheckbox type={props.type} onChange={props.checkboxHandler}>
       {props.children}
     </StyledInputCheckbox>
   );

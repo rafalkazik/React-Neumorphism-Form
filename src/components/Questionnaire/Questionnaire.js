@@ -6,23 +6,30 @@ import Form from '../Form/Form';
 import InputText from '../InputText/InputText';
 import InputTextError from '../InputText/InputTextError';
 import InputCheckbox from '../InputCheckbox/InputCheckbox';
+import InputCheckboxError from '../InputCheckbox/InputCheckboxError';
 import InputCheckboxLabel from '../InputCheckboxLabel/InputCheckboxLabel';
+import Button from '../Button/Button';
 
 function Questionnaire() {
-  let progressValue = 0;
+  let progressValue = 1;
   const [page, setPage] = useState(1);
   const [maxValueOfProgress, setmaxValueOfProgress] = useState(0);
+  const [dataPermission, setDataPermission] = useState('');
+
   const [firstNameError, setFirstNameError] = useState(false);
   const [lastNameError, setLastNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
     email: '',
+    dataPermission: dataPermission,
   });
 
   useEffect(() => {
-    setmaxValueOfProgress(3);
+    setmaxValueOfProgress(5);
+    console.log(dataPermission);
   }, []);
 
   const goNextPage = () => {
@@ -73,6 +80,9 @@ function Questionnaire() {
     if (data.email.length >= 2 && data.email.includes('@')) {
       progressValue += 1;
     }
+    if (data.dataPermission !== dataPermission) {
+      progressValue += 1;
+    }
   };
 
   handleProgress();
@@ -105,6 +115,15 @@ function Questionnaire() {
     }
     if (e.target.value.length >= 2 && e.target.value.includes('@')) {
       setEmailError(false);
+    }
+  };
+
+  const checkboxHandler = () => {
+    setDataPermission(false);
+
+    if (dataPermission === false) {
+      setDataPermission(true);
+      setData({ ...data, dataPermission: true });
     }
   };
 
@@ -144,13 +163,19 @@ function Questionnaire() {
             <InputTextError emailError={emailError}>
               Incorrect email adress value
             </InputTextError>
-            <InputCheckboxLabel>
-              <InputCheckbox type='checkbox' />
+            <InputCheckboxLabel htmlFor='Example'>
+              <InputCheckbox
+                type='checkbox'
+                checkboxHandler={checkboxHandler}
+              />
               Text
             </InputCheckboxLabel>
-            <button type='submit' onClick={goSubmit}>
+            <InputCheckboxError dataPermission={dataPermission}>
+              Select permission
+            </InputCheckboxError>
+            <Button type='submit' goSubmit={goSubmit}>
               Submit
-            </button>
+            </Button>
           </Form>
         </>
       )}
