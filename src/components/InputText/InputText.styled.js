@@ -13,6 +13,10 @@ const StyledInputText = styled.input`
   border-radius: 5px;
   margin: 1rem;
   box-shadow: inset 3px 3px 5px #cccfdb, inset -7px -7px 10px #ffffff73;
+
+  ::placeholder {
+    color: #969696;
+  }
 `;
 
 export { StyledInputText };

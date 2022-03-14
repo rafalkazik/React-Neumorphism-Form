@@ -1,23 +1,25 @@
 import styled, { css } from 'styled-components';
 
 const StyledInputTextError = styled.p`
-  display: none;
+  font-size: 1.3rem;
+  color: #ff3333;
+  visibility: hidden;
 
   ${(props) =>
     props.firstNameError === true &&
     css`
-      display: block;
+      visibility: visible;
     `}
   ${(props) =>
     props.lastNameError === true &&
     css`
-      display: block;
+      visibility: visible;
     `}
-  ${(props) =>
+    ${(props) =>
     props.emailError === true &&
     css`
-      display: block;
-    `}
+      visibility: visible;
+    `};
 `;
 
 export { StyledInputTextError };
