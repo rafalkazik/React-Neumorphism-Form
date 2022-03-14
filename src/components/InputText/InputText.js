@@ -1,13 +1,12 @@
-import { useEffect } from 'react';
 import { StyledInputText } from './InputText.styled';
 
 const InputText = (props) => {
-  useEffect(() => {
-    console.log(props);
-  }, []);
+  // const inputHandler = (e) => {
+  //   console.log(`${props.name}: ${e.target.value}`);
+  // };
 
   return (
-    <StyledInputText placeholder={props.placeholder}>
+    <StyledInputText placeholder={props.placeholder} onChange={props.value}>
       {props.children}
     </StyledInputText>
   );
