@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import { StyledQuestionnaire } from './Questionnaire.styled';
+import IntroPage from '../IntroPage/IntroPage';
+import IntroPageButton from '../IntroPage/IntroPageButton/IntroPageButton';
+import IntroPageText from '../IntroPage/IntroPageText/IntroPageText';
 import {
   Button,
   Form,
@@ -57,15 +60,6 @@ function Questionnaire() {
       console.log('form error');
     }
   };
-
-  function FirstPageContent() {
-    return (
-      <div>
-        <h5>First Page</h5>
-        <button onClick={goNextPage}>Start</button>
-      </div>
-    );
-  }
 
   function LastPageContent() {
     return (
@@ -135,7 +129,18 @@ function Questionnaire() {
 
   return (
     <StyledQuestionnaire>
-      {page === 1 && <FirstPageContent />}
+      {page === 1 && (
+        <IntroPage goNextPage={goNextPage}>
+          <QuestionnaireHeader>inForm</QuestionnaireHeader>
+          <IntroPageText>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.{' '}
+          </IntroPageText>
+          <IntroPageButton goNextPage={goNextPage}>Start</IntroPageButton>
+        </IntroPage>
+      )}
       {page === 2 && (
         <>
           <QuestionnaireHeader>inForm</QuestionnaireHeader>
