@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react';
 import { StyledQuestionnaire } from './Questionnaire.styled';
-import ProgressBarContainer from '../ProgressBar/ProgressBarContainer';
-import ProgressBar from '../ProgressBar/ProgressBar';
-import Form from '../Form/Form';
-import InputText from '../InputText/InputText';
-import InputTextError from '../InputText/InputTextError';
-import InputCheckbox from '../InputCheckbox/InputCheckbox';
-import InputCheckboxError from '../InputCheckbox/InputCheckboxError';
-import InputCheckboxContainer from '../InputCheckboxContainer/InputCheckboxContainer';
-import InputCheckboxSlider from '../InputCheckboxContainer/InputCheckboxSlider';
-import PermissionText from '../PermissionText/PermissionText';
-import Button from '../Button/Button';
+import {
+  Button,
+  Form,
+  InputCheckbox,
+  InputCheckboxContainer,
+  InputCheckboxError,
+  InputCheckboxSlider,
+  InputText,
+  InputTextError,
+  PermissionText,
+  ProgressBar,
+  ProgressBarContainer,
+  QuestionnaireHeader,
+} from '../../helpers/imports';
 
 function Questionnaire() {
   let progressValue = 1;
+
   const [page, setPage] = useState(1);
   const [maxValueOfProgress, setmaxValueOfProgress] = useState(0);
   const [dataPermission, setDataPermission] = useState('');
@@ -134,6 +138,7 @@ function Questionnaire() {
       {page === 1 && <FirstPageContent />}
       {page === 2 && (
         <>
+          <QuestionnaireHeader>inForm</QuestionnaireHeader>
           <ProgressBarContainer>
             <ProgressBar max={maxValueOfProgress} value={progressValue} />
           </ProgressBarContainer>

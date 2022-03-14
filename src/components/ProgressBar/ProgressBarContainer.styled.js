@@ -8,7 +8,6 @@ const StyledProgressBarContainer = styled.div`
     border: 0;
     border-radius: 25px;
     height: 100%;
-    margin-bottom: 3rem;
     width: 100%;
   }
 
@@ -30,13 +29,10 @@ const StyledProgressBarContainer = styled.div`
 
   progress[value]::-webkit-progress-value {
     background: rgb(104, 179, 244);
-    background: linear-gradient(
-      90deg,
-      rgba(104, 179, 244, 1) 0%,
-      rgba(85, 192, 201, 1) 100%
-    );
+    background: linear-gradient(90deg, #68b3f4 0%, #55bfc9 100%);
     border: 0;
     border-radius: 25px;
+    transition: 0.2s ease-in-out;
   }
 `;
 
