@@ -7,7 +7,8 @@ import InputText from '../InputText/InputText';
 import InputTextError from '../InputText/InputTextError';
 import InputCheckbox from '../InputCheckbox/InputCheckbox';
 import InputCheckboxError from '../InputCheckbox/InputCheckboxError';
-import InputCheckboxLabel from '../InputCheckboxLabel/InputCheckboxLabel';
+import InputCheckboxContainer from '../InputCheckboxContainer/InputCheckboxContainer';
+import InputCheckboxSlider from '../InputCheckboxContainer/InputCheckboxSlider';
 import Button from '../Button/Button';
 
 function Questionnaire() {
@@ -163,13 +164,17 @@ function Questionnaire() {
             <InputTextError emailError={emailError}>
               Incorrect email adress value
             </InputTextError>
-            <InputCheckboxLabel htmlFor='Example'>
+            <InputCheckboxContainer>
               <InputCheckbox
                 type='checkbox'
                 checkboxHandler={checkboxHandler}
               />
-              Text
-            </InputCheckboxLabel>
+              <InputCheckboxSlider />
+              <p>
+                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                Lorem ipsum
+              </p>
+            </InputCheckboxContainer>
             <InputCheckboxError dataPermission={dataPermission}>
               Select permission
             </InputCheckboxError>
