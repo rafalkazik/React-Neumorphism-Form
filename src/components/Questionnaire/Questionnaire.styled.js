@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const StyledQuestionnaire = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
 `;
 

@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 const StyledInputTextError = styled.p`
-  font-size: 1.3rem;
   color: #ff3333;
+  font-size: 1.3rem;
   visibility: hidden;
 
   ${(props) =>

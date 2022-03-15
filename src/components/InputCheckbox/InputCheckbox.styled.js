@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const StyledInputCheckbox = styled.input`
-  position: absolute;
   left: -9999px;
+  position: absolute;
   top: -9999px;
 
   &:checked + span {

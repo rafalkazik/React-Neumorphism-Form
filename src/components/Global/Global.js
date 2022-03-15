@@ -4,9 +4,9 @@ const GlobalStyle = createGlobalStyle`
         font-size: 10px;
     }
     body {
+        background-color: #edf5fb;
         font-family: 'Montserrat', sans-serif;;
         font-size: 1.6rem;
-        background-color: #edf5fb;
         width: 100%;
 }
 `;
