@@ -1,6 +1,6 @@
 import { StyledIntroPageButton } from './IntroPageButton.styled';
 
-const Button = (props) => {
+const IntroPageButton = (props) => {
   return (
     <StyledIntroPageButton onClick={props.goNextPage}>
       {props.children}
@@ -8,4 +8,4 @@ const Button = (props) => {
   );
 };
 
-export default Button;
+export default IntroPageButton;

@@ -3,6 +3,9 @@ import { StyledQuestionnaire } from './Questionnaire.styled';
 import IntroPage from '../IntroPage/IntroPage';
 import IntroPageButton from '../IntroPage/IntroPageButton/IntroPageButton';
 import IntroPageText from '../IntroPage/IntroPageText/IntroPageText';
+import LastPage from '../LastPage/LastPage';
+import LastPageButton from '../LastPage/LastPageButton/LastPageButton';
+import LastPageText from '../LastPage/LastPageText/LastPageText';
 import {
   Button,
   Form,
@@ -60,15 +63,6 @@ function Questionnaire() {
       console.log('form error');
     }
   };
-
-  function LastPageContent() {
-    return (
-      <div>
-        <h5>Third Page</h5>
-        <button onClick={goFirstPage}>Start again</button>
-      </div>
-    );
-  }
 
   const handleProgress = () => {
     if (data.firstName.length >= 2) {
@@ -132,12 +126,7 @@ function Questionnaire() {
       {page === 1 && (
         <IntroPage goNextPage={goNextPage}>
           <QuestionnaireHeader>inForm</QuestionnaireHeader>
-          <IntroPageText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.{' '}
-          </IntroPageText>
+          <IntroPageText>Complete the form and send it to us.</IntroPageText>
           <IntroPageButton goNextPage={goNextPage}>Start</IntroPageButton>
         </IntroPage>
       )}
@@ -198,7 +187,18 @@ function Questionnaire() {
           </Form>
         </>
       )}
-      {page === 3 && <LastPageContent />}
+      {page === 3 && (
+        <LastPage goNextPage={goNextPage}>
+          <QuestionnaireHeader>inForm</QuestionnaireHeader>
+          <LastPageText>
+            Thank you, the form has been submitted correctly. We will respond as
+            soon as possible.
+          </LastPageText>
+          <LastPageButton goFirstPage={goFirstPage}>
+            fill in the form again
+          </LastPageButton>
+        </LastPage>
+      )}
     </StyledQuestionnaire>
   );
 }

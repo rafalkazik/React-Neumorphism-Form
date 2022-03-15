@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledIntroPage = styled.div`
+const StyledLastPage = styled.div`
   align-items: center;
   background-color: #eaf3fb;
   border-radius: 5px;
@@ -15,4 +15,4 @@ const StyledIntroPage = styled.div`
   width: 80vw;
 `;
 
-export { StyledIntroPage };
+export { StyledLastPage };

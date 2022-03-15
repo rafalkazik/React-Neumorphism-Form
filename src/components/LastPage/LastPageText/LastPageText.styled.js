@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledIntroPageText = styled.p`
+const StyledLastPageText = styled.p`
   color: #586e80;
   font-size: 1.3rem;
   line-height: 1.5;
@@ -8,4 +8,4 @@ const StyledIntroPageText = styled.p`
   text-align: center;
 `;
 
-export { StyledIntroPageText };
+export { StyledLastPageText };
