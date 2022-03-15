@@ -20,6 +20,11 @@ const StyledInputTextError = styled.p`
     css`
       visibility: visible;
     `};
+  ${(props) =>
+    props.phoneError === true &&
+    css`
+      visibility: visible;
+    `};
 `;
 
 export { StyledInputTextError };

@@ -1,11 +1,6 @@
 import { useEffect, useState } from 'react';
 import { StyledQuestionnaire } from './Questionnaire.styled';
-import IntroPage from '../IntroPage/IntroPage';
-import IntroPageButton from '../IntroPage/IntroPageButton/IntroPageButton';
-import IntroPageText from '../IntroPage/IntroPageText/IntroPageText';
-import LastPage from '../LastPage/LastPage';
-import LastPageButton from '../LastPage/LastPageButton/LastPageButton';
-import LastPageText from '../LastPage/LastPageText/LastPageText';
+import { goNextPage, goFirstPage } from '../../helpers/handlers';
 import {
   Button,
   Form,
@@ -15,6 +10,12 @@ import {
   InputCheckboxSlider,
   InputText,
   InputTextError,
+  IntroPage,
+  IntroPageButton,
+  IntroPageText,
+  LastPage,
+  LastPageButton,
+  LastPageText,
   PermissionText,
   ProgressBar,
   ProgressBarContainer,
@@ -23,6 +24,7 @@ import {
 
 function Questionnaire() {
   let progressValue = 1;
+  const regexOnlyNumbers = /^[0-9]*$/;
 
   const [page, setPage] = useState(1);
   const [maxValueOfProgress, setmaxValueOfProgress] = useState(0);
@@ -31,26 +33,19 @@ function Questionnaire() {
   const [firstNameError, setFirstNameError] = useState(false);
   const [lastNameError, setLastNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
 
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
     email: '',
+    phone: '',
     dataPermission: dataPermission,
   });
 
   useEffect(() => {
-    setmaxValueOfProgress(5);
-    console.log(dataPermission);
+    setmaxValueOfProgress(6);
   }, []);
-
-  const goNextPage = () => {
-    setPage((page) => page + 1);
-  };
-
-  const goFirstPage = () => {
-    window.location.reload();
-  };
 
   const goSubmit = (e) => {
     e.preventDefault();
@@ -72,6 +67,9 @@ function Questionnaire() {
       progressValue += 1;
     }
     if (data.email.length >= 2 && data.email.includes('@')) {
+      progressValue += 1;
+    }
+    if (regexOnlyNumbers.test(data.phone) && data.phone.length >= 9) {
       progressValue += 1;
     }
     if (data.dataPermission !== dataPermission) {
@@ -112,6 +110,16 @@ function Questionnaire() {
     }
   };
 
+  const phoneInputValue = (e) => {
+    setData({ ...data, phone: e.target.value });
+    if (!regexOnlyNumbers.test(e.target.value) || data.phone.length <= 8) {
+      setPhoneError(true);
+    }
+    if (regexOnlyNumbers.test(e.target.value) && data.phone.length >= 8) {
+      setPhoneError(false);
+    }
+  };
+
   const checkboxHandler = () => {
     setDataPermission(false);
 
@@ -124,10 +132,12 @@ function Questionnaire() {
   return (
     <StyledQuestionnaire>
       {page === 1 && (
-        <IntroPage goNextPage={goNextPage}>
+        <IntroPage>
           <QuestionnaireHeader>inForm</QuestionnaireHeader>
           <IntroPageText>Complete the form and send it to us.</IntroPageText>
-          <IntroPageButton goNextPage={goNextPage}>Start</IntroPageButton>
+          <IntroPageButton goNextPage={() => goNextPage(setPage)}>
+            Start
+          </IntroPageButton>
         </IntroPage>
       )}
       {page === 2 && (
@@ -164,6 +174,15 @@ function Questionnaire() {
             <InputTextError emailError={emailError}>
               Incorrect email adress value
             </InputTextError>
+            <InputText
+              name='phone'
+              type='text'
+              placeholder='phone'
+              value={phoneInputValue}
+            />
+            <InputTextError phoneError={phoneError}>
+              Incorrect phone number value
+            </InputTextError>
             <InputCheckboxContainer>
               <InputCheckbox
                 type='checkbox'
@@ -188,7 +207,7 @@ function Questionnaire() {
         </>
       )}
       {page === 3 && (
-        <LastPage goNextPage={goNextPage}>
+        <LastPage>
           <QuestionnaireHeader>inForm</QuestionnaireHeader>
           <LastPageText>
             Thank you, the form has been submitted correctly. We will respond as
