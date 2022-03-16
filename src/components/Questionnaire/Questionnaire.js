@@ -25,6 +25,7 @@ import {
 function Questionnaire() {
   let progressValue = 1;
   const regexOnlyNumbers = /^[0-9]*$/;
+  const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
   const [page, setPage] = useState(1);
   const [maxValueOfProgress, setmaxValueOfProgress] = useState(0);
@@ -66,7 +67,7 @@ function Questionnaire() {
     if (data.lastName.length >= 2) {
       progressValue += 1;
     }
-    if (data.email.length >= 2 && data.email.includes('@')) {
+    if (regexEmail.test(data.email)) {
       progressValue += 1;
     }
     if (regexOnlyNumbers.test(data.phone) && data.phone.length >= 9) {
@@ -102,10 +103,10 @@ function Questionnaire() {
 
   const emailInputValue = (e) => {
     setData({ ...data, email: e.target.value });
-    if (e.target.value.length <= 1 && !e.target.value.includes('@')) {
+    if (!regexEmail.test(e.target.value)) {
       setEmailError(true);
     }
-    if (e.target.value.length >= 2 && e.target.value.includes('@')) {
+    if (regexEmail.test(e.target.value)) {
       setEmailError(false);
     }
   };
