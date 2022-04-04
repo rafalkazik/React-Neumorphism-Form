@@ -24,10 +24,6 @@ Our repositories search engine is ready at port 3000.
 
     http://localhost:3000/
 
-You need to run our JSON server also:
-
-    json-server --watch ./src/db/data.json --port 3005
-
 ## :microscope: How it works?
 
 ![firstLook](./public/form-screen.png)
